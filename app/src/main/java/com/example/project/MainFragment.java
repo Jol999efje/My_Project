@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class MainFragment extends Fragment {
     View v;
-    TextView get_keyword;
+    TextView get_search;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,10 +62,10 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v= inflater.inflate(R.layout.fragment_main, container, false);
-        get_keyword= v.findViewById(R.id.get_search);
+        get_search= v.findViewById(R.id.get_search);
         Bundle bundle=this.getArguments();
-        String mykeyword=bundle.getString("my_keyword");
-        get_keyword.setText(mykeyword);
+        String get_keyword=bundle.getString("editText");
+        get_search.setText(get_keyword );
 
         return v;
     }

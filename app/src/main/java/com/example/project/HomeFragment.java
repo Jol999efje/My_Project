@@ -21,7 +21,7 @@ import android.widget.TextView;
 public class HomeFragment extends Fragment implements View.OnClickListener {
     View v;
     EditText editText;
-    Button searchbutton;
+    Button button_submit;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,16 +78,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void initiew() {
         editText= v.findViewById(R.id.InputKeyword);
-        searchbutton= v.findViewById(R.id.SearchButton);
-        searchbutton.setOnClickListener(this);
+        button_submit= v.findViewById(R.id.enter_button);
+        button_submit.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId()==R.id.InputKeyword){
+        if(view.getId()==R.id.enter_button){
             Bundle bundle=new Bundle();
             String my_keyword= editText.getText().toString();
-            bundle.putString("my_keyword",my_keyword);
+            bundle.putString("editText",my_keyword);
             MainFragment mainFragment=new MainFragment();
             mainFragment.setArguments(bundle);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_fragment,mainFragment).commit();
