@@ -3,6 +3,8 @@ package com.example.project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class MainFragment extends Fragment {
+    RecyclerView recyclerView;
+    Adapter adapter;
     View v;
     TextView get_search;
     // TODO: Rename parameter arguments, choose names that match
@@ -55,6 +59,12 @@ public class MainFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        recyclerView=getView().findViewById(R.id.recyclerview_model);
+        adapter=new Adapter(getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+
+
     }
 
     @Override
