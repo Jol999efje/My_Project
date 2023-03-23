@@ -59,7 +59,7 @@ public class MainFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        recyclerView=getView().findViewById(R.id.recyclerview_model);
+        recyclerView=getView().findViewById(R.id.recycler_view);
         adapter=new Adapter(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
