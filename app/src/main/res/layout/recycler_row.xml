@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:elevation="15dp"
         app:cardBackgroundColor="@color/beige"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="13dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,37 +26,39 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="129dp"
-                android:layout_height="105dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cafe" />
-
-            <TextView
-                android:id="@+id/Cafe_Name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="R cafe"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/image"
-                app:layout_constraintTop_toTopOf="@+id/image" />
+                app:srcCompat="@drawable/img_2969" />
 
             <TextView
                 tools:ignore="@string/attribute"
                 android:id="@+id/attribute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="6dp"
                 android:text="#氣氛佳 #價格優惠 #工業風"
-                android:textSize="16sp"
+                android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@+id/Cafe_Name"
                 app:layout_constraintTop_toBottomOf="@+id/Cafe_Name" />
+
+            <TextView
+                android:id="@+id/Cafe_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="R cafe"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/image"
+                app:layout_constraintTop_toTopOf="@+id/image" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,15 +1,18 @@
 package com.example.project;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +22,7 @@ import android.widget.TextView;
 public class MainFragment extends Fragment {
     RecyclerView recyclerView;
     Adapter adapter;
+  //  Adapter adapter2;
     View v;
     TextView get_search;
     // TODO: Rename parameter arguments, choose names that match
@@ -29,6 +33,9 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ArrayList<Data> DataArrayList;
+    private String[] NameList;
+    private int[] ImageList;
 
     public MainFragment() {
         // Required empty public constructor
@@ -59,10 +66,10 @@ public class MainFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        recyclerView=getView().findViewById(R.id.recycler_view);
-        adapter=new Adapter(getActivity());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+    //    recyclerView=getView().findViewById(R.id.recycler_view);
+    //    adapter=new Adapter(getActivity());
+    //    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+    //    recyclerView.setAdapter(adapter);
 
 
     }
@@ -78,5 +85,41 @@ public class MainFragment extends Fragment {
         get_search.setText(get_keyword );
 
         return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        
+        dataInitialize();
+
+        recyclerView=view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        Adapter adapter=new Adapter(getContext(),DataArrayList);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+    }
+
+    private void dataInitialize() {
+        DataArrayList=new ArrayList<>();
+        NameList =new String[]{
+               getString(R.string.name1) ,
+                getString(R.string.name2),
+                getString(R.string.name3)
+        };
+
+        ImageList =new int[]{
+                R.drawable.img_2969,
+                R.drawable.img_2970,
+                R.drawable.img_2972
+
+        };
+        for (int i=0;i<NameList.length;i++){
+            Data data=new Data(ImageList[i], NameList[i]);
+            DataArrayList.add(data);
+        }
+
     }
 }
